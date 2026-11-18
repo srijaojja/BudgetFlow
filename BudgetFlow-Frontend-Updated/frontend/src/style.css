@@ -1,0 +1,3500 @@
+/* ========================================
+   BUDGETFLOW - STYLE.CSS
+   PART 1: GLOBAL STYLES AND SIDEBAR
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: #29263e;
+    background: #f7f7fd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Main application */
+
+.app {
+    --surface: #fff;
+    --background: #f7f7fd;
+    --foreground: #29263e;
+    --muted: #9290a5;
+    --border: #eeedf5;
+
+    min-height: 100vh;
+    display: flex;
+    color: var(--foreground);
+    background: var(--background);
+}
+
+/* Dark mode */
+
+.app.dark {
+    --surface: #242337;
+    --background: #191827;
+    --foreground: #f4f2ff;
+    --muted: #aaa7c3;
+    --border: #39374d;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 245px;
+    flex-shrink: 0;
+    min-height: 100vh;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 17px;
+}
+
+/* Logo */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: #7965eb;
+    font-size: 23px;
+    font-weight: 800;
+
+    margin: 4px 12px 48px;
+}
+
+/* Navigation label */
+
+.nav-label {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    padding: 0 14px;
+    margin-bottom: 17px;
+}
+
+/* Sidebar navigation */
+
+.sidebar nav {
+    display: grid;
+    gap: 7px;
+}
+
+/* Navigation buttons */
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 11px;
+
+    background: transparent;
+    color: var(--muted);
+
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Active navigation */
+
+.nav-item:hover,
+.nav-item.selected {
+    background: #eeeaff;
+    color: #7965eb;
+}
+
+/* Sidebar bottom */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+/* Help panel */
+
+.help-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 19px;
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    color: #6853d8;
+    background: #f0edff;
+
+    font-size: 13px;
+}
+
+.help-panel span {
+    line-height: 1.5;
+}
+
+/* ========================================
+   PART 2: MAIN CONTENT AND DASHBOARD
+======================================== */
+
+/* Main content */
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Top navigation */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--surface);
+    padding: 20px 36px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar-title,
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Small heading */
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    font-weight: 800;
+    color: #9c96c5;
+}
+
+/* Page heading */
+
+.topbar h1 {
+    font-size: 24px;
+    margin: 5px 0 0;
+}
+
+/* Profile avatar */
+
+.avatar {
+    display: grid;
+    place-items: center;
+
+    background: #eae5ff;
+    color: #7965eb;
+
+    border-radius: 50%;
+    width: 41px;
+    height: 41px;
+
+    font-weight: 800;
+}
+
+/* Icon buttons */
+
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    color: var(--muted);
+
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.icon-btn:hover {
+    background: var(--border);
+}
+
+.icon-btn.danger {
+    color: #ec7792;
+}
+
+/* Mobile navigation toggle */
+
+.mobile-toggle {
+    display: none;
+}
+
+/* Page content */
+
+.page-body {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 30px 35px 55px;
+}
+
+/* Welcome banner */
+
+.welcome-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 30px 35px;
+    border-radius: 19px;
+
+    background: linear-gradient(
+            110deg,
+            #7560e8,
+            #a58af8
+    );
+
+    color: white;
+    margin-bottom: 24px;
+}
+
+.welcome-banner .eyebrow {
+    color: #e7ddff;
+}
+
+.welcome-banner h2 {
+    font-size: 26px;
+    margin: 10px 0;
+}
+
+.welcome-banner p {
+    color: #eae5ff;
+    margin: 0;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: none;
+
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Primary button */
+
+.btn.primary {
+    background: #7965eb;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #6650d9;
+}
+
+/* Light button */
+
+.btn.light {
+    background: white;
+    color: #6855d7;
+}
+
+/* Secondary button */
+
+.btn.secondary {
+    background: #eeeaff;
+    color: #6855d7;
+}
+
+/* ========================================
+   DASHBOARD STATISTICS
+======================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(
+    4,
+    minmax(0, 1fr)
+  );
+
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+/* Statistics and panel cards */
+
+.stat-card,
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    box-shadow: 0 5px 25px #34305b05;
+}
+
+/* Statistics card */
+
+.stat-card {
+    padding: 23px;
+}
+
+/* Statistics heading */
+
+.stat-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    color: var(--muted);
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+/* Statistics icon */
+
+.stat-icon {
+    width: 39px;
+    height: 39px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+}
+
+/* Statistics amount */
+
+.stat-card strong {
+    display: block;
+
+    font-size: clamp(
+            19px,
+            2vw,
+            28px
+    );
+
+    overflow-wrap: anywhere;
+}
+
+/* Statistics description */
+
+.stat-card small {
+    display: block;
+
+    font-size: 11px;
+    color: var(--muted);
+
+    margin-top: 10px;
+}
+
+/* ========================================
+   DASHBOARD PANELS
+======================================== */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(0, 1fr);
+
+    gap: 22px;
+    margin-bottom: 24px;
+}
+
+/* General panel */
+
+.panel {
+    padding: 25px;
+    margin-bottom: 23px;
+    min-width: 0;
+}
+
+/* Panels inside dashboard grid */
+
+.dashboard-grid .panel {
+    margin-bottom: 0;
+}
+
+/* Section heading */
+
+.section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 23px;
+}
+
+/* Panel headings */
+
+.section-head h3,
+.panel > h3 {
+    margin: 0 0 18px;
+    font-size: 18px;
+}
+
+/* Muted text */
+
+.section-head > span,
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* Chart container */
+
+.chart-box {
+    width: 100%;
+    height: 300px;
+}
+
+/* ========================================
+   PART 3: TRANSACTIONS, BUDGETS AND FORMS
+======================================== */
+
+/* ========================================
+   TRANSACTION TABLE
+======================================== */
+
+/* Enable horizontal scrolling */
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+/* Table styling */
+
+table {
+    width: 100%;
+    min-width: 550px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Table headings and cells */
+
+th,
+td {
+    padding: 15px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+
+/* Table headings */
+
+th {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ========================================
+   INCOME AND EXPENSE LABELS
+======================================== */
+
+/* Common label */
+
+.pill {
+    display: inline-block;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* Income label */
+
+.pill.income {
+    background: #e6f9f1;
+    color: #20a47a;
+}
+
+/* Expense label */
+
+.pill.expense {
+    background: #ffebf1;
+    color: #e46a91;
+}
+
+/* ========================================
+   BUDGET PROGRESS BARS
+======================================== */
+
+/* Budget progress container */
+
+.budget-progress {
+    margin-bottom: 24px;
+}
+
+/* Budget progress heading */
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+/* Budget progress text */
+
+.progress-label span {
+    color: var(--muted);
+}
+
+/* Budget description */
+
+.progress-label small {
+    display: block;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* Progress bar background */
+
+.progress-track {
+    height: 9px;
+    background: #eeebf8;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Progress bar fill */
+
+.progress-track > div {
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.3s;
+}
+
+/* ========================================
+   BUDGET CARDS
+======================================== */
+
+/* Budget grid */
+
+.budget-list {
+    display: grid;
+    grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+    gap: 18px;
+}
+
+/* Individual budget card */
+
+.budget-item {
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 20px;
+}
+
+/* Budget footer */
+
+.budget-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 13px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ========================================
+   FORM STYLING
+======================================== */
+
+/* Form grid */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+    gap: 20px;
+}
+
+/* Form labels */
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Input fields */
+
+input,
+select {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px;
+    outline: none;
+    background: var(--surface);
+    color: var(--foreground);
+}
+
+/* Input focus */
+
+input:focus,
+select:focus {
+    border-color: #7965eb;
+}
+
+/* Form action container */
+
+.form-action {
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Form submit button */
+
+.form-action .btn {
+    min-height: 45px;
+}
+
+/* ========================================
+   PART 4: ALERTS, CATEGORIES,
+   GOALS, SETTINGS AND AUTHENTICATION
+======================================== */
+
+/* ========================================
+   ALERT MESSAGES
+======================================== */
+
+/* Common notification styling */
+
+.notice {
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+/* Error notification */
+
+.notice.error {
+    color: #bd4264;
+    background: #ffedf2;
+}
+
+/* Success notification */
+
+.notice.success {
+    color: #168764;
+    background: #e8f9f0;
+}
+
+/* ========================================
+   EMPTY STATES
+======================================== */
+
+.empty {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ========================================
+   CATEGORIES PAGE
+======================================== */
+
+/* Category group */
+
+.category-group {
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+}
+
+/* Category heading */
+
+.category-group h4 {
+    margin: 0 0 15px;
+}
+
+/* Category list */
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Saved categories and suggestions */
+
+.category-chip,
+.suggestion {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 7px 11px;
+
+    background: var(--surface);
+    color: var(--foreground);
+
+    font-size: 12px;
+}
+
+/* Category suggestion hover */
+
+.suggestion:hover {
+    border-color: #7965eb;
+    color: #7965eb;
+}
+
+/* ========================================
+   SAVINGS GOALS PAGE
+======================================== */
+
+/* Savings goal grid */
+
+.goal-grid {
+    display: grid;
+    grid-template-columns: repeat(
+    3,
+    minmax(0, 1fr)
+  );
+    gap: 20px;
+}
+
+/* Goal amount */
+
+.goal-amount {
+    font-size: 27px;
+}
+
+/* Goal progress bar */
+
+.goal-grid .progress-track {
+    margin: 20px 0;
+}
+
+/* ========================================
+   SETTINGS PAGE
+======================================== */
+
+/* Settings row */
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Settings description */
+
+.setting-row p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ========================================
+   TEXT LINK BUTTONS
+======================================== */
+
+.link-btn {
+    border: none;
+    background: transparent;
+    color: #7965eb;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ========================================
+   LOGIN AND REGISTER PAGE
+======================================== */
+
+/* Authentication page layout */
+
+.auth-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+}
+
+/* Left authentication panel */
+
+.auth-hero {
+    background: linear-gradient(
+            145deg,
+            #6f5be1,
+            #a18af5
+    );
+
+    color: white;
+    padding: 55px 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+/* Authentication logo */
+
+.auth-hero .brand {
+    color: white;
+    margin: 0;
+}
+
+/* Authentication heading */
+
+.auth-hero h1 {
+    font-size: clamp(
+            35px,
+            4vw,
+            60px
+    );
+
+    max-width: 550px;
+    line-height: 1.15;
+}
+
+/* Authentication description */
+
+.auth-hero p {
+    color: #e8e2ff;
+    line-height: 1.7;
+}
+
+/* Authentication footer */
+
+.auth-hero small {
+    color: #e8e2ff;
+}
+
+/* Decorative rupee symbol */
+
+.hero-decoration {
+    width: 200px;
+    height: 200px;
+
+    border: 2px solid #ffffff55;
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 100px;
+    margin-top: 40px;
+}
+
+/* Right authentication panel */
+
+.auth-right {
+    display: grid;
+    place-items: center;
+    padding: 30px;
+}
+
+/* Login/Register form */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: min(420px, 100%);
+}
+
+/* Form heading */
+
+.auth-form h2 {
+    font-size: 32px;
+    margin: 0;
+}
+
+/* Form description */
+
+.auth-form p {
+    color: #9994ab;
+    margin: 0 0 12px;
+}
+
+/* Full-width login/register button */
+
+.auth-form .btn {
+    width: 100%;
+}
+
+/* ========================================
+   PART 5: RESPONSIVE DESIGN
+======================================== */
+
+/* ========================================
+   TABLET AND SMALL LAPTOP SCREENS
+   Screen width: 1200px or less
+======================================== */
+
+@media (max-width: 1200px) {
+
+    /* Display statistics in two columns */
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Stack dashboard panels vertically */
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Display savings goals in two columns */
+
+    .goal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* ========================================
+   TABLET AND MOBILE SCREENS
+   Screen width: 800px or less
+======================================== */
+
+@media (max-width: 800px) {
+
+    /* Hide sidebar outside the screen */
+
+    .sidebar {
+        position: fixed;
+        z-index: 10;
+
+        left: -260px;
+        top: 0;
+        bottom: 0;
+
+        transition: left 0.25s;
+    }
+
+    /* Show sidebar when menu is opened */
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* Show mobile menu button */
+
+    .mobile-toggle {
+        display: inline-flex;
+    }
+
+    /* Reduce top navigation padding */
+
+    .topbar {
+        padding: 18px;
+    }
+
+    /* Reduce page padding */
+
+    .page-body {
+        padding: 18px;
+    }
+
+    /* Login/Register single-column layout */
+
+    .auth-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Hide authentication hero on mobile */
+
+    .auth-hero {
+        display: none;
+    }
+
+    /* Center login/register form */
+
+    .auth-right {
+        min-height: 100vh;
+    }
+
+}
+
+/* ========================================
+   SMALL MOBILE SCREENS
+   Screen width: 550px or less
+======================================== */
+
+@media (max-width: 550px) {
+
+    /* Single-column layouts */
+
+    .stats-grid,
+    .form-grid,
+    .budget-list,
+    .goal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack welcome banner content */
+
+    .welcome-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Smaller welcome heading */
+
+    .welcome-banner h2 {
+        font-size: 22px;
+    }
+
+    /* Adjust statistics amount */
+
+    .stat-card strong {
+        font-size: 25px;
+    }
+
+    /* Smaller page heading */
+
+    .topbar h1 {
+        font-size: 20px;
+    }
+
+    /* Reduce panel padding */
+
+    .panel {
+        padding: 18px;
+    }
+
+    /* Stack settings controls vertically */
+
+    .setting-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+/* ========================================
+   PART 6: FINSET-INSPIRED DASHBOARD DESIGN
+======================================== */
+
+/* Note:
+   Google Fonts @import rules must appear at the
+   beginning of style.css to load correctly.
+
+   Add this import above the DM Sans import
+   at the top of Part 1:
+
+   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+*/
+
+/* ========================================
+   GLOBAL DESIGN OVERRIDES
+======================================== */
+
+:root {
+    font-family: 'Manrope', sans-serif;
+    background: #c5bbff;
+}
+
+body {
+    background: #c5bbff;
+}
+
+/* ========================================
+   MAIN APPLICATION CONTAINER
+======================================== */
+
+.app {
+    margin: clamp(14px, 4.3vw, 68px) auto;
+
+    min-height: calc(100vh - 9vw);
+
+    width: min(
+            1500px,
+            calc(100% - 42px)
+    );
+
+    border-radius: 40px;
+    overflow: hidden;
+
+    background: #fff;
+
+    box-shadow: 0 30px 70px #6350bd35;
+
+    --surface: #fff;
+    --background: #fff;
+    --foreground: #19191d;
+    --border: #dedde2;
+    --muted: #98969f;
+}
+
+/* ========================================
+   SIDEBAR DESIGN
+======================================== */
+
+.sidebar {
+    background: #f7f5ff;
+    border-right: 0;
+
+    min-height: unset;
+    width: 240px;
+
+    padding: 24px 20px 28px;
+}
+
+/* Sidebar logo */
+
+.sidebar .brand {
+    font-size: 21px;
+    color: #16161b;
+
+    gap: 12px;
+    margin: 0 0 44px;
+
+    font-weight: 800;
+    letter-spacing: -0.9px;
+}
+
+/* Circular logo icon */
+
+.logo-mark {
+    width: 46px;
+    height: 46px;
+
+    background: #141418;
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    color: #8a75ff;
+    font-size: 31px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* Sidebar navigation spacing */
+
+.sidebar nav {
+    gap: 4px;
+}
+
+/* Navigation items */
+
+.nav-item {
+    border-radius: 28px;
+
+    padding: 14px 15px;
+
+    color: #25232a;
+
+    font-weight: 600;
+    font-size: 14px;
+
+    gap: 14px;
+}
+
+/* Selected navigation item */
+
+.nav-item.selected,
+.nav-item:hover {
+    background: #8068ff;
+    color: white;
+}
+
+/* Sidebar bottom navigation */
+
+.sidebar-bottom .nav-item {
+    margin-top: 7px;
+}
+
+.sidebar-bottom {
+    padding-top: 25px;
+}
+
+/* ========================================
+   MAIN CONTENT AREA
+======================================== */
+
+.content {
+    background: #fff;
+}
+
+/* ========================================
+   TOP HEADER
+======================================== */
+
+.topbar {
+    padding: 25px 25px 10px;
+
+    border-bottom: 0;
+
+    align-items: flex-start;
+}
+
+/* Header title */
+
+.topbar h1 {
+    font-size: 27px;
+    letter-spacing: -1px;
+    margin: 0;
+    font-weight: 800;
+}
+
+/* Header subtitle */
+
+.header-subtitle {
+    margin: 3px 0 0;
+
+    color: #aaa7b0;
+    font-size: 13px;
+}
+
+/* Header action buttons */
+
+.top-actions {
+    gap: 9px;
+}
+
+/* Circular icon button */
+
+.round-icon {
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    background: white;
+
+    border: 1px solid #dddce2;
+    border-radius: 50%;
+
+    color: #17171b;
+    cursor: pointer;
+}
+
+.round-icon:hover {
+    background: #f5f2ff;
+}
+
+/* ========================================
+   PROFILE SECTION
+======================================== */
+
+/* Profile container */
+
+.profile-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border: 1px solid #dedde2;
+    border-radius: 28px;
+
+    padding: 5px 14px 5px 5px;
+
+    min-width: 170px;
+}
+
+/* Profile name and role */
+
+.profile-pill strong,
+.profile-pill small {
+    display: block;
+    font-size: 11px;
+}
+
+.profile-pill small {
+    font-size: 9px;
+    color: #aaa7b0;
+}
+
+/* Profile avatar */
+
+.avatar {
+    width: 34px;
+    height: 34px;
+
+    font-size: 12px;
+    background: #e8e0ff;
+}
+
+/* ========================================
+   PAGE CONTENT
+======================================== */
+
+.page-body {
+    padding: 0 25px 25px;
+    max-width: none;
+}
+
+/* ========================================
+   DASHBOARD CONTROLS
+======================================== */
+
+/* Dashboard control toolbar */
+
+.dashboard-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    margin: 13px 0;
+}
+
+/* Date and widget controls */
+
+.date-controls,
+.widget-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+/* Outlined control button */
+
+.outline-pill,
+.purple-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 13px 18px;
+
+    border: 1px solid #dddce2;
+    border-radius: 28px;
+
+    background: white;
+    color: #27252c;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+/* Purple action button */
+
+.purple-pill {
+    background: #8068ff;
+    color: white;
+    border-color: #8068ff;
+}
+
+/* Smaller control button */
+
+.small-pill {
+    padding: 8px 12px;
+    font-size: 11px;
+}
+
+/* ========================================
+   DASHBOARD STATISTICS
+======================================== */
+
+/* Four-column statistics grid */
+
+.stats-grid {
+    grid-template-columns: repeat(
+    4,
+    minmax(0, 1fr)
+  );
+
+    gap: 13px;
+    margin-bottom: 14px;
+}
+
+/* Statistics card */
+
+.stat-card {
+    border: 1px solid #d6d4da;
+    border-radius: 24px;
+
+    box-shadow: none;
+
+    padding: 18px 18px 16px;
+
+    min-height: 150px;
+}
+
+/* Statistics heading */
+
+.stat-heading {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1c1b20;
+
+    margin-bottom: 20px;
+
+    align-items: flex-start;
+}
+
+/* Circular statistics icon */
+
+.stat-icon {
+    width: 43px;
+    height: 43px;
+
+    background: #fff !important;
+    color: #202027 !important;
+
+    border: 1px solid #dddce2;
+    border-radius: 50%;
+
+    margin-top: -7px;
+    margin-right: -8px;
+}
+
+/* Statistics amount */
+
+.stat-card strong {
+    font-size: clamp(
+            19px,
+            2vw,
+            29px
+    );
+
+    letter-spacing: -1.3px;
+    color: #17171b;
+}
+
+/* Statistics change indicator */
+
+.stat-change {
+    margin-top: 14px;
+
+    color: #aaa8b0;
+    font-size: 10px;
+}
+
+/* Positive change indicator */
+
+.stat-change span {
+    display: inline-block;
+
+    border-radius: 15px;
+    padding: 4px 7px;
+
+    background: #e4f8e8;
+    color: #398a4a;
+
+    font-size: 10px;
+    margin-right: 4px;
+}
+
+/* ========================================
+   PART 7: DASHBOARD CHARTS,
+   BUDGET DONUT, TRANSACTIONS AND GOALS
+======================================== */
+
+/* ========================================
+   DASHBOARD GRID
+======================================== */
+
+/* Dashboard chart layout */
+
+.dashboard-grid {
+    grid-template-columns:
+    minmax(0, 2fr)
+    minmax(310px, 1fr);
+
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+/* ========================================
+   DASHBOARD PANELS
+======================================== */
+
+/* General panel design */
+
+.panel {
+    border: 1px solid #d7d5dc;
+    border-radius: 25px;
+
+    box-shadow: none;
+
+    padding: 19px 20px;
+}
+
+/* Section heading */
+
+.section-head {
+    margin-bottom: 16px;
+}
+
+/* Panel titles */
+
+.section-head h3,
+.panel > h3 {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* ========================================
+   CHART TOOLS AND LEGEND
+======================================== */
+
+/* Chart controls */
+
+.chart-tools {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 11px;
+    color: #303038;
+}
+
+/* Chart legend dots */
+
+.legend-dot {
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+}
+
+/* Primary chart color */
+
+.primary-dot {
+    background: #8068ff;
+}
+
+/* Secondary chart color */
+
+.secondary-dot {
+    background: #bcb0ff;
+    margin-left: 6px;
+}
+
+/* ========================================
+   CHART CONTAINER
+======================================== */
+
+/* Chart height */
+
+.chart-box {
+    height: 225px;
+}
+
+/* Income/expense chart and budget panel */
+
+.flow-panel,
+.budget-panel {
+    min-height: 295px;
+}
+
+/* ========================================
+   BUDGET DONUT CHART
+======================================== */
+
+/* Donut chart layout */
+
+.budget-chart-layout {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    height: 210px;
+}
+
+/* Donut chart legend */
+
+.budget-legend {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Legend items */
+
+.budget-legend > div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin: 12px 0;
+
+    font-size: 10px;
+    white-space: nowrap;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Legend color indicator */
+
+.budget-legend i {
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+/* Donut chart container */
+
+.donut-wrap {
+    width: 56%;
+    height: 190px;
+
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   DONUT CHART CENTER LABEL
+======================================== */
+
+/* Center text container */
+
+.donut-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    pointer-events: none;
+
+    white-space: nowrap;
+}
+
+/* Center description */
+
+.donut-center small {
+    display: block;
+
+    color: #a5a3ac;
+    font-size: 9px;
+}
+
+/* Center amount */
+
+.donut-center strong {
+    font-size: 15px;
+    letter-spacing: -0.5px;
+}
+
+/* ========================================
+   BOTTOM DASHBOARD PANELS
+======================================== */
+
+/* Bottom panels minimum height */
+
+.bottom-grid .panel {
+    min-height: 240px;
+}
+
+/* ========================================
+   RECENT TRANSACTIONS TABLE
+======================================== */
+
+/* Transaction table minimum width */
+
+.transactions-panel .table-scroll table {
+    min-width: 470px;
+}
+
+/* Transaction table headings */
+
+.transactions-panel th {
+    background: #f6f3ff;
+    color: #8068ff;
+
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+/* Rounded left table heading */
+
+.transactions-panel th:first-child {
+    border-radius: 20px 0 0 20px;
+}
+
+/* Rounded right table heading */
+
+.transactions-panel th:last-child {
+    border-radius: 0 20px 20px 0;
+}
+
+/* Transaction table data */
+
+.transactions-panel td {
+    font-size: 11px;
+}
+
+/* Table cell spacing */
+
+.transactions-panel th,
+.transactions-panel td {
+    padding: 11px 9px;
+}
+
+/* ========================================
+   SAVINGS GOALS PANEL
+======================================== */
+
+/* Goal panel heading */
+
+.goals-panel .section-head {
+    margin-bottom: 14px;
+}
+
+/* Individual goal row */
+
+.goal-line {
+    margin: 15px 0;
+    position: relative;
+}
+
+/* Goal name and percentage */
+
+.goal-line-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 11px;
+    margin-bottom: 8px;
+}
+
+/* Goal percentage */
+
+.goal-line-top span:last-child {
+    color: #8068ff;
+}
+
+/* ========================================
+   SAVINGS GOAL PROGRESS BAR
+======================================== */
+
+/* Goal progress background */
+
+.goal-line .progress-track {
+    height: 19px;
+    background: #ebe7ff;
+}
+
+/* Goal progress fill */
+
+.goal-line .progress-track > div {
+    background: #8068ff;
+    height: 100%;
+}
+
+/* Goal progress text */
+
+.goal-line small {
+    position: absolute;
+
+    top: 28px;
+    left: 10px;
+
+    font-size: 9px;
+    color: #fff;
+}
+
+/* ========================================
+   AUTHENTICATION FONT OVERRIDE
+======================================== */
+
+.auth-layout {
+    font-family: 'Manrope', sans-serif;
+}
+
+/* ========================================
+   PART 8: RESPONSIVE DESIGN
+   AND FULL-SCREEN LAYOUT
+======================================== */
+
+/* ========================================
+   LAPTOP AND TABLET SCREENS
+   Screen width: 1200px or less
+======================================== */
+
+@media (max-width: 1200px) {
+
+    .app {
+        width: calc(100% - 30px);
+    }
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .budget-chart-layout {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .donut-wrap {
+        width: 45%;
+    }
+
+}
+
+/* ========================================
+   TABLET AND MOBILE SCREENS
+   Screen width: 800px or less
+======================================== */
+
+@media (max-width: 800px) {
+
+    .app {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        position: fixed;
+        min-height: 100vh;
+        z-index: 20;
+        left: -260px;
+
+        box-shadow: 10px 0 30px #4e407020;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .topbar {
+        padding: 20px 18px 8px;
+    }
+
+    .page-body {
+        padding: 0 16px 24px;
+    }
+
+    .profile-pill {
+        min-width: unset;
+        padding: 4px;
+    }
+
+    .profile-pill > div:last-child {
+        display: none;
+    }
+
+    .dashboard-controls {
+        flex-wrap: wrap;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+    }
+
+}
+
+/* ========================================
+   SMALL MOBILE SCREENS
+   Screen width: 550px or less
+======================================== */
+
+@media (max-width: 550px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-card {
+        padding: 13px;
+        min-height: 132px;
+    }
+
+    .stat-heading {
+        font-size: 12px;
+    }
+
+    .stat-card strong {
+        font-size: 19px;
+    }
+
+    .stat-change {
+        font-size: 9px;
+    }
+
+    .dashboard-controls {
+        align-items: flex-start;
+    }
+
+    .widget-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .outline-pill,
+    .purple-pill {
+        padding: 10px;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .header-subtitle {
+        font-size: 11px;
+    }
+
+    .round-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .budget-chart-layout {
+        height: 210px;
+    }
+
+    .donut-wrap {
+        width: 55%;
+    }
+
+    .chart-tools {
+        font-size: 9px;
+    }
+
+    .chart-tools .small-pill {
+        display: none;
+    }
+
+}
+
+/* ========================================
+   FULL-VIEWPORT BUDGETFLOW LAYOUT
+======================================== */
+
+/* Remove unwanted page margins */
+
+html,
+body,
+#root {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+/* White page background */
+
+body {
+    background: #fff;
+}
+
+/* Full-screen application */
+
+.app {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+
+    border-radius: 0;
+    box-shadow: none;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    overflow: hidden;
+}
+
+/* Main content height */
+
+.content {
+    min-width: 0;
+    min-height: 100dvh;
+}
+
+/* Page body sizing */
+
+.page-body {
+    min-width: 0;
+}
+
+/* ========================================
+   DESKTOP SIDEBAR HEIGHT
+======================================== */
+
+@media (min-width: 801px) {
+
+    .sidebar {
+        min-height: 100dvh;
+    }
+
+}
+
+/* ========================================
+   RESPONSIVE DASHBOARD OVERRIDES
+======================================== */
+
+@media (max-width: 1200px) {
+
+    .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+    }
+
+}
+
+/* ========================================
+   MOBILE LAYOUT OVERRIDES
+======================================== */
+
+@media (max-width: 800px) {
+
+    .app {
+        width: 100%;
+        margin: 0;
+    }
+
+    .sidebar {
+        height: 100dvh;
+        overflow-y: auto;
+    }
+
+    .page-body {
+        padding: 8px 14px 24px;
+    }
+
+    .topbar {
+        gap: 8px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .form-grid,
+    .budget-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+}
+
+/* ========================================
+   SMALL MOBILE OPTIMIZATIONS
+======================================== */
+
+@media (max-width: 550px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+    }
+
+    .stat-card strong {
+        font-size: clamp(
+                14px,
+                4vw,
+                21px
+        );
+    }
+
+    .stat-card {
+        min-width: 0;
+    }
+
+    .top-actions {
+        gap: 5px;
+    }
+
+    .topbar {
+        padding: 12px;
+    }
+
+    .profile-pill {
+        display: none;
+    }
+
+    .chart-box {
+        height: 200px;
+    }
+
+    .panel {
+        padding: 14px;
+    }
+
+    .dashboard-controls {
+        gap: 8px;
+    }
+
+}
+
+/* ========================================
+   SHORT SCREEN HEIGHT OPTIMIZATION
+======================================== */
+
+@media (max-height: 650px) {
+
+    .sidebar {
+        overflow-y: auto;
+    }
+
+    .page-body {
+        padding-bottom: 18px;
+    }
+
+}
+
+/* ========================================
+   END OF BUDGETFLOW STYLE.CSS
+======================================== */
+
+/* ==========================================
+   PART 9: AUTO-FIT RESPONSIVE SCREEN
+========================================== */
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.app {
+    width: 100%;
+    height: 100dvh;
+    min-height: 0;
+    margin: 0;
+    display: flex;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.sidebar {
+    height: 100dvh;
+    min-height: 0;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    height: 100dvh;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.topbar {
+    flex-shrink: 0;
+    padding: 12px 22px;
+}
+
+.page-body {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    max-width: none;
+    padding: 10px 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.stats-grid {
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.stat-card {
+    min-height: 0;
+    padding: 12px;
+}
+
+.stat-heading {
+    margin-bottom: 8px;
+}
+
+.dashboard-grid {
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.panel {
+    padding: 14px;
+    margin-bottom: 10px;
+}
+
+.chart-box {
+    height: clamp(130px, 22vh, 220px);
+}
+
+.flow-panel,
+.budget-panel {
+    min-height: 0;
+}
+
+.budget-chart-layout {
+    height: clamp(130px, 22vh, 210px);
+}
+
+.donut-wrap {
+    height: 100%;
+}
+
+/* Laptop */
+
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 190px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 800px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -260px;
+        z-index: 20;
+        width: 240px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .topbar {
+        padding: 10px 14px;
+    }
+
+    .page-body {
+        padding: 10px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 550px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 10px;
+    }
+
+    .stat-card strong {
+        font-size: clamp(13px, 4vw, 19px);
+    }
+
+    .stat-heading {
+        font-size: 11px;
+    }
+
+    .panel {
+        padding: 10px;
+    }
+
+    .chart-box {
+        height: 160px;
+    }
+
+    .form-grid,
+    .budget-list,
+    .goal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-controls {
+        gap: 6px;
+    }
+
+    .outline-pill,
+    .purple-pill {
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .topbar h1 {
+        font-size: 18px;
+    }
+}
+
+/* ==========================================
+   PART 10: FIX DASHBOARD CHART ALIGNMENT
+========================================== */
+
+/* Keep dashboard chart cards aligned */
+
+.dashboard-grid {
+    align-items: stretch;
+    gap: 16px;
+}
+
+/* Chart cards */
+
+.flow-panel,
+.budget-panel {
+    min-width: 0;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+/* Give chart headings proper spacing */
+
+.flow-panel .section-head,
+.budget-panel .section-head {
+    margin-bottom: 22px;
+}
+
+/* Move income/expense graph slightly lower */
+
+.flow-panel .chart-box {
+    width: 100%;
+    height: 210px;
+    padding-top: 12px;
+    overflow: hidden;
+}
+
+/* Center the category chart */
+
+.budget-chart-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    height: 215px;
+    min-height: 0;
+}
+
+/* Keep the pie/donut graph circular */
+
+.donut-wrap {
+    position: relative;
+    flex: 0 0 auto;
+    width: min(190px, 58%);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    max-height: 190px;
+    margin: 0 auto;
+}
+
+/* Center text inside the donut */
+
+.donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Category legend */
+
+.budget-legend {
+    flex: 1;
+    min-width: 0;
+    max-width: 180px;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE CHARTS
+========================================== */
+
+@media (max-width: 900px) {
+
+    .flow-panel,
+    .budget-panel {
+        min-height: 280px;
+    }
+
+    .flow-panel .chart-box {
+        height: 190px;
+    }
+
+    .donut-wrap {
+        width: min(175px, 55%);
+        max-height: 175px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE CHARTS
+========================================== */
+
+@media (max-width: 550px) {
+
+    .flow-panel,
+    .budget-panel {
+        min-height: 260px;
+    }
+
+    .flow-panel .chart-box {
+        height: 175px;
+        padding-top: 8px;
+    }
+
+    .budget-chart-layout {
+        height: 190px;
+        gap: 8px;
+    }
+
+    .donut-wrap {
+        width: min(145px, 55%);
+        max-height: 145px;
+    }
+
+    .budget-legend {
+        max-width: 125px;
+    }
+
+}
+
+/* ==========================================
+   PART 11: BIGGER DASHBOARD CHART BOXES
+========================================== */
+
+/* Increase both chart card sizes */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Bigger income and spending cards */
+
+.flow-panel,
+.budget-panel {
+    min-height: 390px;
+    height: 390px;
+    padding: 24px;
+    overflow: hidden;
+}
+
+/* Chart headings */
+
+.flow-panel .section-head,
+.budget-panel .section-head {
+    margin-bottom: 24px;
+}
+
+/* Income vs Expenses graph */
+
+.flow-panel .chart-box {
+    width: 100%;
+    height: 280px;
+    padding-top: 15px;
+    overflow: visible;
+}
+
+/* Spending by Category layout */
+
+.budget-chart-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    height: 285px;
+    min-height: 0;
+}
+
+/* Perfect circular pie/donut chart */
+
+.donut-wrap {
+    position: relative;
+    flex: 0 0 230px;
+    width: 230px;
+    height: 230px;
+    max-height: none;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+}
+
+/* Chart labels */
+
+.budget-legend {
+    flex: 1;
+    min-width: 0;
+    max-width: 170px;
+}
+
+/* Donut center label */
+
+.donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ==========================================
+   TABLET SCREENS
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flow-panel,
+    .budget-panel {
+        height: auto;
+        min-height: 350px;
+    }
+
+    .flow-panel .chart-box {
+        height: 260px;
+    }
+
+    .budget-chart-layout {
+        height: 260px;
+    }
+
+    .donut-wrap {
+        flex-basis: 210px;
+        width: 210px;
+        height: 210px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE SCREENS
+========================================== */
+
+@media (max-width: 550px) {
+
+    .flow-panel,
+    .budget-panel {
+        height: auto;
+        min-height: 310px;
+        padding: 16px;
+    }
+
+    .flow-panel .chart-box {
+        height: 220px;
+    }
+
+    .budget-chart-layout {
+        height: 225px;
+        gap: 8px;
+    }
+
+    .donut-wrap {
+        flex-basis: 165px;
+        width: 165px;
+        height: 165px;
+    }
+
+    .budget-legend {
+        max-width: 110px;
+        font-size: 10px;
+    }
+
+}
+
+/* ANALYTICS PERFECT CIRCLE CHART */
+
+.analytics-pie-chart {
+    width: 100%;
+    height: 340px;
+    min-height: 340px;
+    padding: 10px;
+    overflow: visible;
+}
+
+.analytics-pie-chart .recharts-responsive-container {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@media (max-width: 550px) {
+    .analytics-pie-chart {
+        height: 280px;
+        min-height: 280px;
+    }
+}
+
+/* ANALYTICS INCOME VS EXPENSES */
+
+.analytics-page .chart-box {
+    width: 100%;
+    height: 380px;
+    min-height: 380px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.analytics-page .chart-box .recharts-responsive-container {
+    width: 100% !important;
+    height: 100% !important;
+}
+/* Analytics: compact Income vs Expenses card and visible axis labels */
+.analytics-income-panel {
+    height: fit-content;
+    min-height: 0;
+    align-self: start;
+    overflow: visible;
+}
+.analytics-income-panel .chart-box {
+    width: 100%;
+    height: 280px;
+    min-height: 0;
+    overflow: visible;
+}
+
+
+/* BudgetFlow functionality and theme fixes */
+html.bf-dark, body.bf-dark { background: #12111c !important; color-scheme: dark; }
+.app.dark {
+    --surface: #242337;
+    --background: #191827;
+    --foreground: #f4f2ff;
+    --muted: #b8b4ce;
+    --border: #413e56;
+    background: var(--background) !important;
+    color: var(--foreground) !important;
+}
+.app.dark .content, .app.dark .topbar, .app.dark .panel,
+.app.dark .stat-card, .app.dark .round-icon, .app.dark .budget-item,
+.app.dark .category-chip, .app.dark .suggestion,
+.app.dark .profile-pill, .app.dark .header-search-panel,
+.app.dark .notification-panel {
+    background: var(--surface) !important;
+    color: var(--foreground) !important;
+    border-color: var(--border) !important;
+}
+.app.dark .sidebar { background: #201e32 !important; border-color: var(--border) !important; }
+.app.dark .sidebar .brand, .app.dark .nav-item:not(.selected),
+.app.dark .topbar h1, .app.dark .section-head h3,
+.app.dark .progress-label strong, .app.dark .profile-pill strong,
+.app.dark .setting-row strong { color: var(--foreground) !important; }
+.app.dark .nav-item.selected, .app.dark .nav-item:hover { color: #fff !important; }
+.app.dark input, .app.dark select, .app.dark textarea {
+    background: #302d43 !important;
+    color: var(--foreground) !important;
+    border-color: var(--border) !important;
+    color-scheme: dark;
+}
+.app.dark .outline-pill, .app.dark .btn.secondary,
+.app.dark .progress-track, .app.dark .table-scroll,
+.app.dark .budget-legend, .app.dark .setting-row,
+.app.dark .chip-list { color: var(--foreground) !important; border-color: var(--border) !important; }
+.app.dark .outline-pill, .app.dark .btn.secondary { background: #36324e !important; }
+.app.dark th, .app.dark td { border-color: var(--border) !important; color: var(--foreground); }
+.app.dark .header-subtitle, .app.dark .muted, .app.dark .budget-footer,
+.app.dark .progress-label small { color: var(--muted) !important; }
+.app.dark .auth-layout, body.bf-dark .auth-layout { background: #191827; color: #f4f2ff; }
+.app.dark .auth-right, body.bf-dark .auth-right { background: #191827; }
+.header-search-panel { display: flex; align-items: center; gap: 12px; padding: 14px 25px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.header-search-panel input { flex: 1; min-width: 0; }
+.notification-count { position: absolute; top: -5px; right: -5px; border-radius: 50%; min-width: 18px; height: 18px; display: grid; place-items: center; padding: 2px; font-size: 10px; font-weight: 800; color: #fff; background: #e35a7b; }
+.notification-panel { position: relative; z-index: 5; margin: 0 25px; padding: 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); box-shadow: 0 8px 25px #00000012; }
+.notification-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.notification-entry { display: block; width: 100%; padding: 12px; margin: 6px 0; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--foreground); text-align: left; }
+.notification-entry.unread { border-left: 4px solid #8068ff; font-weight: 700; }
+.notification-entry.read { opacity: .7; }
+.month-filter-label { display: flex; flex-direction: row; align-items: center; gap: 8px; }
+.month-filter-label span { font-size: 12px; color: var(--muted); }
+.month-filter-label input { max-width: 175px; }
+.transaction-filter { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.transaction-filter input { max-width: 250px; }
+.budget-legend > div { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.budget-legend-label { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.budget-legend-amount { margin-left: auto; white-space: nowrap; font-size: 12px; }
+.app *, .app *::before, .app *::after { animation: none !important; transition: none !important; }
+@media (max-width: 700px) {
+  .header-search-panel { flex-wrap: wrap; padding: 12px; }
+  .header-search-panel input { flex-basis: 100%; }
+  .notification-panel { margin: 0 12px; }
+  .month-filter-label span { display: none; }
+}
+
+/* BudgetFlow: readable money-flow legend in both themes */
+.chart-legend-item { display: inline-flex; align-items: center; gap: 7px; color: var(--foreground); font-weight: 700; }
+.chart-legend-item .legend-dot { flex: 0 0 9px; margin-left: 0; }
+.app.dark .chart-tools, .app.dark .chart-legend-item, .app.dark .chart-legend-item span:last-child { color: #f4f2ff !important; }
+.app.dark .stat-card .stat-heading, .app.dark .stat-card > strong { color: #ffffff !important; }
+/* Summary cards no longer show arrow icon; keep heading aligned */
+.stat-heading { justify-content: flex-start; }
+
+/* ==========================================
+   BUDGETFLOW - RESPONSIVE DESIGN
+   MOBILE / TABLET / LAPTOP / DESKTOP
+========================================== */
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
+}
+
+#root {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.app {
+    width: min(1500px, calc(100% - 40px));
+    max-width: 100%;
+    margin: 24px auto;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.page-body {
+    width: 100%;
+    min-width: 0;
+}
+
+.panel,
+.stat-card,
+.budget-item {
+    min-width: 0;
+}
+
+.chart-box,
+.donut-wrap {
+    min-width: 0;
+}
+
+.recharts-responsive-container {
+    max-width: 100%;
+}
+
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+/* ==========================================
+   LARGE LAPTOPS AND TABLETS
+========================================== */
+
+@media (max-width: 1200px) {
+
+    .app {
+        width: calc(100% - 32px);
+        margin: 16px auto;
+    }
+
+    .sidebar {
+        width: 210px;
+        flex-shrink: 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .topbar {
+        gap: 16px;
+    }
+
+    .top-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}
+
+/* ==========================================
+   TABLETS AND SMALL SCREENS
+========================================== */
+
+@media (max-width: 800px) {
+
+    .app {
+        width: 100%;
+        margin: 0;
+        min-height: 100vh;
+        border-radius: 0;
+        overflow: visible;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+
+        width: min(280px, 85vw);
+        height: 100dvh;
+        overflow-y: auto;
+
+        transform: translateX(-110%);
+        transition: none;
+
+        border-radius: 0;
+        box-shadow: 8px 0 30px #00000022;
+    }
+
+    .sidebar.open {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .mobile-toggle {
+        display: inline-flex;
+    }
+
+    .content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .topbar {
+        padding: 18px 20px;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .topbar-title {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .topbar h1 {
+        font-size: 22px;
+    }
+
+    .header-subtitle {
+        font-size: 12px;
+    }
+
+    .top-actions {
+        gap: 8px;
+    }
+
+    .profile-pill {
+        min-width: 0;
+        padding: 5px;
+    }
+
+    .profile-pill strong,
+    .profile-pill small {
+        display: none;
+    }
+
+    .page-body {
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .budget-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .goal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .chart-box {
+        height: 260px;
+    }
+
+    .dashboard-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .widget-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .auth-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-hero {
+        display: none;
+    }
+
+    .auth-right {
+        min-height: 100dvh;
+    }
+}
+
+/* ==========================================
+   MOBILE PHONES
+========================================== */
+
+@media (max-width: 550px) {
+
+    .page-body {
+        padding: 14px;
+    }
+
+    .topbar {
+        padding: 14px;
+    }
+
+    .topbar h1 {
+        font-size: 19px;
+    }
+
+    .header-subtitle {
+        display: none;
+    }
+
+    .top-actions {
+        gap: 5px;
+        flex-wrap: nowrap;
+    }
+
+    .round-icon {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 15px 12px;
+        border-radius: 14px;
+    }
+
+    .stat-card strong {
+        font-size: clamp(17px, 4.5vw, 24px);
+        overflow-wrap: anywhere;
+    }
+
+    .stat-heading {
+        font-size: 12px;
+    }
+
+    .stat-icon {
+        display: none;
+    }
+
+    .panel {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .section-head {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .section-head h3 {
+        font-size: 17px;
+    }
+
+    .dashboard-grid,
+    .budget-list,
+    .goal-grid,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-box {
+        height: 230px;
+    }
+
+    .budget-chart-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .donut-wrap {
+        width: min(240px, 100%);
+        height: 240px;
+        margin: 0 auto;
+    }
+
+    .dashboard-controls {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .date-controls,
+    .widget-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .widget-actions .purple-pill,
+    .widget-actions .outline-pill {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .setting-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .welcome-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px;
+    }
+
+    .welcome-banner h2 {
+        font-size: 22px;
+    }
+
+    .table-scroll table {
+        min-width: 600px;
+    }
+
+    .auth-right {
+        padding: 20px;
+    }
+}
+
+/* ==========================================
+   EXTRA SMALL MOBILE PHONES
+========================================== */
+
+@media (max-width: 380px) {
+
+    .page-body {
+        padding: 10px;
+    }
+
+    .topbar {
+        padding: 10px;
+    }
+
+    .topbar h1 {
+        font-size: 17px;
+    }
+
+    .stat-card {
+        padding: 12px 9px;
+    }
+
+    .stat-card strong {
+        font-size: 16px;
+    }
+
+    .stat-heading {
+        font-size: 11px;
+    }
+
+    .panel {
+        padding: 12px;
+    }
+
+    .round-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .chart-box {
+        height: 210px;
+    }
+}
+
+/* ==========================================
+   DARK MODE RESPONSIVE FIXES
+========================================== */
+
+.app.dark .stat-card,
+.app.dark .panel,
+.app.dark .budget-item {
+    color: #ffffff;
+}
+
+.app.dark .stat-card strong,
+.app.dark .stat-heading,
+.app.dark .section-head h3,
+.app.dark .budget-legend,
+.app.dark .goal-line-top {
+    color: #ffffff !important;
+}
+
+.app.dark .recharts-text {
+    fill: #e8e5f5 !important;
+}
+
+/* Disable animations */
+.app *,
+.app *::before,
+.app *::after {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Remove outer white space */
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.app {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    min-height: 100vh;
+}
+
+/* Sidebar starts from the left edge */
+.sidebar {
+    margin-left: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* Main content fills remaining space */
+.content {
+    flex: 1;
+    min-width: 0;
+}
+/* Login and Register Box */
+
+.auth-form {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 36px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .auth-form {
+        padding: 24px;
+    }
+}
+.auth-form input {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    border: 1px solid #dcdce8;
+    border-radius: 12px;
+    background: #f9f9ff;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.auth-form input:focus {
+    border-color: #7861ee;
+    box-shadow: 0 0 0 3px rgba(120, 97, 238, 0.12);
+}
+
+.bf-delete-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.bf-delete-dialog {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.bf-delete-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.bf-delete-dialog h2 {
+    margin: 0 0 12px;
+    color: #24213a;
+    font-size: 24px;
+}
+
+.bf-delete-dialog p {
+    color: #77758b;
+    line-height: 1.6;
+}
+
+.bf-delete-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.bf-delete-actions button {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.bf-delete-cancel {
+    background: #f0eef8;
+    color: #333047;
+}
+
+.bf-delete-button {
+    background: #ef4444;
+    color: white;
+}
+
+.bf-delete-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* BudgetFlow Login / Register / Forgot Password */
+
+.auth-card h1,
+.auth-card h2 {
+    color: #29253f !important;
+}
+
+.auth-card label {
+    color: #29253f !important;
+    font-weight: 600;
+}
+
+.auth-card input {
+    background-color: #f8f7fc !important;
+    color: #29253f !important;
+    border: 1px solid #d8d6e5 !important;
+}
+
+.auth-card input::placeholder {
+    color: #9893aa !important;
+}
+
+.auth-card input:focus {
+    border-color: #7961ee !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(121, 97, 238, 0.12);
+}
+
+/* BudgetFlow Auth Form - Dark Theme Fix */
+
+.auth-card {
+    background: #ffffff !important;
+}
+
+.auth-card h1,
+.auth-card h2,
+.auth-card label {
+    color: #29253f !important;
+}
+
+.auth-card input {
+    background: #f8f7fc !important;
+    color: #29253f !important;
+    border: 1px solid #d8d6e5 !important;
+}
+
+.auth-card input::placeholder {
+    color: #9893aa !important;
+}
+
+.auth-card input:focus {
+    border-color: #7961ee !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(121, 97, 238, 0.12);
+}
+
+/* FIX: logged-out auth card stays readable when saved dark mode is active.
+   App.jsx adds bf-dark to <body>, while Auth renders outside .app. */
+body.bf-dark .auth-form {
+    background: #ffffff;
+    color: #29263e;
+    color-scheme: light;
+}
+body.bf-dark .auth-form h2,
+body.bf-dark .auth-form label {
+    color: #29263e;
+}
+body.bf-dark .auth-form input {
+    background: #f9f9ff;
+    color: #29263e;
+    border-color: #dcdce8;
+    color-scheme: light;
+}
+body.bf-dark .auth-form input::placeholder { color: #9994ab; }
+
+.budget-legend > div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    min-width: 0;
+    margin: 13px 0;
+    white-space: nowrap;
+}
+
+.budget-legend-label {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.budget-legend-amount {
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+}

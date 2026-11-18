@@ -1,0 +1,29 @@
+# React Frontend
+node_modules/
+dist/
+build/
+.env
+.env.*
+
+# Spring Boot Backend
+target/
+*.class
+*.jar
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Windows files
+Thumbs.db
+.DS_Store
+
+# Log files
+*.log
+
+# Environment files - Never upload passwords
+.env
+.env.*
+**/.env
+**/.env.*
